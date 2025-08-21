@@ -1,0 +1,13 @@
+project              = "revinci"
+location             = "eastus"
+resource_group_name  = "prod-aks"
+address_space        = ["10.40.0.0/16"]
+aks_subnet_cidr      = "10.40.1.0/24"
+bastion_subnet_cidr  = "10.40.10.0/24"
+admin_ssh_ip_allow   = "YOUR.PUBLIC.IP.0/32"
+kubernetes_version   = "1.32.0"
+system_node_count    = 1
+user_node_count      = 1
+log_analytics_sku    = "PerGB2018"
+log_analytics_retention_days = 7
+acr_sku              = "Basic"

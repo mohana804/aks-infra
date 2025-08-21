@@ -17,3 +17,6 @@ terraform.rc
 *.tmp
 *.idea/
 .vscode/
+
+# allow committing environment tfvars
+!environments/*.tfvars
