@@ -38,13 +38,15 @@ jobs:
         working-directory: terraform-aks
         run: terraform init -upgrade
 
-      - name: Terraform Validate & Plan
+      - name: Terraform Validate
         working-directory: terraform-aks
         run: |
           terraform validate
-          terraform plan -var-file=../environments/${ENVIRONMENT}.tfvars -out=tfplan
+
+      - name: Terraform Plan
+        working-directory: ${{ env.TF_WORKING_DIR }}
+        run: terraform plan -var-file="environments/${{ github.event.inputs.env }}.tfvars" -out=tfplan
 
       - name: Terraform Apply
-        if: github.ref == 'refs/heads/main'
-        working-directory: terraform-aks
+        working-directory: ${{ env.TF_WORKING_DIR }}
         run: terraform apply -auto-approve tfplan
