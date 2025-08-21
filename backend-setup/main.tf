@@ -36,7 +36,6 @@ resource "azurerm_storage_account" "tf" {
   location                 = azurerm_resource_group.tf.location
   account_tier             = "Standard"
   account_replication_type = "LRS"
-  allow_blob_public_access = false
   min_tls_version          = "TLS1_2"
 }
 
