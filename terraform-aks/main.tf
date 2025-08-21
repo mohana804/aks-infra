@@ -1,3 +1,14 @@
+module "aks" {
+  source              = "./modules/aks"
+  project             = var.project
+  location            = var.location
+  resource_group_name = azurerm_resource_group.rg.name
+  kubernetes_version  = var.kubernetes_version
+  system_node_count   = var.system_node_count
+  user_node_count     = var.user_node_count
+  log_analytics_id    = azurerm_log_analytics_workspace.law.id
+}
+
 locals {
   tags = {
     project = var.project
