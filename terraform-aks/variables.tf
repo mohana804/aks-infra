@@ -1,0 +1,13 @@
+variable "project"                 { type = string }
+variable "location"                { type = string }
+variable "resource_group_name"     { type = string }
+variable "address_space"           { type = list(string) }
+variable "aks_subnet_cidr"         { type = string }
+variable "bastion_subnet_cidr"     { type = string }
+variable "admin_ssh_ip_allow"      { type = string }
+variable "kubernetes_version"      { type = string }
+variable "system_node_count"       { type = number }
+variable "user_node_count"         { type = number }
+variable "log_analytics_sku"       { type = string }
+variable "log_analytics_retention_days" { type = number }
+variable "acr_sku"                 { type = string }
